@@ -1,5 +1,8 @@
 package it.polito.tdp.flight.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Airline {
 
 	private int airlineId;
@@ -10,7 +13,10 @@ public class Airline {
 	private String callsign;
 	private String country;
 	private String active;
-
+	
+	//pattern ORM
+	private List<Route> routes;
+	
 	public Airline(int airlineId, String name, String alias, String iata, String icao, String callsign, String country,
 			String active) {
 		super();
@@ -22,6 +28,7 @@ public class Airline {
 		this.callsign = callsign;
 		this.country = country;
 		this.active = active;
+		this.routes = new ArrayList<>();
 	}
 
 	public int getAirlineId() {
@@ -119,5 +126,13 @@ public class Airline {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public List<Route> getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(List<Route> routes) {
+		this.routes = routes;
 	}
 }

@@ -1,5 +1,8 @@
 package it.polito.tdp.flight.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Airport {
 
 	private int airportId;
@@ -13,6 +16,9 @@ public class Airport {
 	private float timezone;
 	private String dst;
 	private String tz;
+	
+	//pattern ORM
+	private List<Route> routes;
 
 	public Airport(int airportId, String name, String city, String country, String iataFaa, String icao,
 			double latitude, double longitude, float timezone, String dst, String tz) {
@@ -28,6 +34,7 @@ public class Airport {
 		this.timezone = timezone;
 		this.dst = dst;
 		this.tz = tz;
+		this.routes = new ArrayList<>();
 	}
 
 	public int getAirportId() {
@@ -152,5 +159,13 @@ public class Airport {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public List<Route> getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(List<Route> routes) {
+		this.routes = routes;
 	}
 }
